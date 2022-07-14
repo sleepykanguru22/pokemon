@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 const Pokemon = (props) => {
   //   const [pokemon, setPokemon] = useState(null);
@@ -23,7 +23,7 @@ const Pokemon = (props) => {
       .then((response) => {
         setPokemon(response.data.results);
       });
-  }, [fetched]);
+  }, [fetch]);
 
   //   const showPokemon = () => {
   //     if (pokemon === null) {
@@ -41,8 +41,14 @@ const Pokemon = (props) => {
 
   return (
     <>
-      <button onClick={getAllPokemon}>Fetch Pokémon!</button>
-      <ul>{showPokemon()}</ul>
+      <button onClick={(e) => setFetch(true)}>Fetch Pokémon!</button>
+      <ul>
+        {fetch ? (
+          pokemon.map((item, i) => <li key={i}>{item.name}</li>)
+        ) : (
+          <li></li>
+        )}
+      </ul>
     </>
   );
 };
