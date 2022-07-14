@@ -9,9 +9,6 @@ const Pokemon = (props) => {
       })
       .then((response) => {
         setPokemon(response.results);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   };
 
