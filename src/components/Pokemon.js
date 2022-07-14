@@ -1,9 +1,20 @@
 import React, { useState } from "react";
+import axios from "axios";
 const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState(null);
 
+  //   const getAllPokemon = (event) => {
+  //     fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
+  //       .then((response) => {
+  //         return response.json();
+  //       })
+  //       .then((response) => {
+  //         setPokemon(response.results);
+  //       });
+  //   };
   const getAllPokemon = (event) => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
       .then((response) => {
         return response.json();
       })
