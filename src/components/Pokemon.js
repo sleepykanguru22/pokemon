@@ -2,7 +2,7 @@ import React, { useState } from "react";
 const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState(null);
 
-  const getPokemon = (event) => {
+  const getAllPokemon = (event) => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
       .then((response) => {
         return response.json();
@@ -12,7 +12,7 @@ const Pokemon = (props) => {
       });
   };
 
-  const displayPokemon = () => {
+  const showPokemon = () => {
     if (pokemon === null) {
       return;
     } else {
@@ -28,8 +28,8 @@ const Pokemon = (props) => {
 
   return (
     <>
-      <button onClick={getPokemon}>Fetch Pokémon!</button>
-      <ul>{displayPokemon()}</ul>
+      <button onClick={getAllPokemon}>Fetch Pokémon!</button>
+      <ul>{showPokemon()}</ul>
     </>
   );
 };
